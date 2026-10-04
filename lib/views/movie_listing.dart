@@ -16,6 +16,7 @@ class MovieListing extends StatelessWidget {
       ),
       drawer: const NavDrawer(),
       body: Container(
+        padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: cinemaSurface,
           border: Border.all(
