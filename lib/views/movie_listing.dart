@@ -24,14 +24,17 @@ class MovieListing extends StatelessWidget {
           ),
           borderRadius: BorderRadius.circular(8),
         ),
-        child: const Text(
-          'Movie title',
-          style: TextStyle(
-            color: cinemaFontWhite,
-            fontSize: 24,
+        child: const Column(
+          children: [
+            Text(
+              'Inception',
+              style: TextStyle(color: cinemaFontWhite
+              ),
+            )
+          ],
+            
           ),
         ),
-      ),
-    );
+      );
   }
 }
