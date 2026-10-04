@@ -7,7 +7,7 @@ const Color cinemaBrandLight = Color(0xFF7FCEE6);
 const Color cinemaBrandDark = Color(0xFF3FB5D9);
 
 const Color cinemaBackground = Color(0xFF1B1E28);
-const Color cinemaFontWhite = Color(0xFFFFFFFF);
+const Color cinemaFontWhite = Color(0xFFF5BAF5);
 const Color cinemaFontMuted = Color(0xFF8A90A0);
 const Color cinemaSurface = Color(0xFF242936);
 

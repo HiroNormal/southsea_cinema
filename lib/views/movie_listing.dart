@@ -15,7 +15,22 @@ class MovieListing extends StatelessWidget {
         elevation: 0,
       ),
       drawer: const NavDrawer(),
-      body: const SizedBox.shrink(),
+      body: Container(
+        decoration: BoxDecoration(
+          color: cinemaSurface,
+          border: Border.all(
+            color: cinemaBrand,
+          ),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: const Text(
+          'Movie title',
+          style: TextStyle(
+            color: cinemaFontWhite,
+            fontSize: 24,
+          ),
+        ),
+      ),
     );
   }
 }
