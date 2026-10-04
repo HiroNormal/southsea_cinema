@@ -92,6 +92,10 @@ class _MovieListingState extends State<MovieListing> {
             ),
             const SizedBox(height: 16),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: cinemaFontWhite,
+                foregroundColor: cinemaBackground,
+              ),
               onPressed: () {
                 setState(() {
                   final ticketLabel =
