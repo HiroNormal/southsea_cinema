@@ -1,5 +1,5 @@
 {
-  "dart.defaultFlutterDevice": "edge",
+  "dart.defaultFlutterDevice": "chrome",
   "dart.flutterSelectDeviceWhenConnected": false,
   "dart.runPubGetOnPubspecChanges": "always",
   "security.workspace.trust.enabled": false
