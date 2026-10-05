@@ -67,7 +67,7 @@ class _MovieListingState extends State<MovieListing> {
             ),
             SizedBox(height: 40),
             Text(
-              'Please note that Discounts/ Membership Benefits will be applied once you have selected your tickets',
+              'Please note that Discounts / Membership Benefits will be applied once you have selected your tickets',
               textAlign: TextAlign.left,
               style: TextStyle(
                 color: cinemaFontWhite,
@@ -76,7 +76,7 @@ class _MovieListingState extends State<MovieListing> {
             ),
             const SizedBox(height: 24),
             Text(
-              'Please note that Discounts/ Membership Benefits will be applied once you have selected your tickets',
+              'Select Quantites (Up to 5 in total)',
               textAlign: TextAlign.left,
               style: TextStyle(
                 color: cinemaFontWhite,
@@ -94,54 +94,71 @@ class _MovieListingState extends State<MovieListing> {
             ),
             const SizedBox(height: 10),
             
-            Container(
-              width: 100,
-              height: 34,
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              color: cinemaFontWhite,
-              child: DropdownButtonHideUnderline(
-                child: DropdownButton<int>(
-                  value: _ticketQuantity,
-                  isExpanded: true,
-                  style: const TextStyle(color: Colors.black, fontSize: 16),
-                  dropdownColor: cinemaFontWhite,
-                  iconEnabledColor: Colors.black,
-                  onChanged: (int? value) {
-                    if (value != null) {
-                      setState(() {
-                        _ticketQuantity = value;
-                      });
-                    }
-                  },
-                  items: [
-                    for (var quantity = 0; quantity <= 5; quantity++)
-                      DropdownMenuItem(
-                        value: quantity,
-                        child: Text('$quantity'),
-                      ),
-                  ],
+            Row(
+              children: [
+                Container(
+                  width: 100,
+                  height: 34,
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  color: cinemaFontWhite,
+                  child: DropdownButtonHideUnderline(
+                    child: DropdownButton<int>(
+                      value: _ticketQuantity,
+                      isExpanded: true,
+                      style: const TextStyle(color: Colors.black, fontSize: 16),
+                      dropdownColor: cinemaFontWhite,
+                      iconEnabledColor: Colors.black,
+                      onChanged: (int? value) {
+                        if (value != null) {
+                          setState(() {
+                            _ticketQuantity = value;
+                          });
+                        }
+                      },
+                      items: [
+                        for (var quantity = 0; quantity <= 5; quantity++)
+                          DropdownMenuItem(
+                            value: quantity,
+                            child: Text('$quantity'),
+                          ),
+                      ],
+                    ),
+                  ),
                 ),
-              ),
+                const SizedBox(width: 16),
+                const Text(
+                  'Adult (£7.50)',
+                  style: TextStyle(
+                    color: cinemaFontWhite,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 16),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: cinemaBrand,
-                foregroundColor: cinemaFontWhite,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.zero,
+            Row(
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: cinemaBrand,
+                    foregroundColor: cinemaFontWhite,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.zero,
+                    ),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      final ticketLabel =
+                          _ticketQuantity == 1 ? 'ticket' : 'tickets';
+                      _orderFeedback =
+                          '$_ticketQuantity $ticketLabel added to your order.';
+                    });
+                  },
+                  child: const Text('ADD TO ORDER'),
                 ),
-              ),
-              onPressed: () {
-                setState(() {
-                  final ticketLabel =
-                      _ticketQuantity == 1 ? 'ticket' : 'tickets';
-                  _orderFeedback =
-                      '$_ticketQuantity $ticketLabel added to your order.';
-                });
-              },
-              child: const Text('ADD TO ORDER'),
+              ],
             ),
+            
             if (_orderFeedback != null) ...[
               const SizedBox(height: 10),
               Text(
