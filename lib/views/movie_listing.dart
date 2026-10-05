@@ -10,7 +10,7 @@ class MovieListing extends StatefulWidget {
 }
 
 class _MovieListingState extends State<MovieListing> {
-  int _ticketQuantity = 1;
+  int _ticketQuantity = 0;
   String? _orderFeedback;
 
   @override
@@ -48,22 +48,52 @@ class _MovieListingState extends State<MovieListing> {
                   'Southsea Cinema Room',
                   style: TextStyle(
                     color: cinemaFontWhite,
-                    fontSize: 15,
+                    fontSize: 14,
                   ),
                 ),
-                SizedBox(width: 20),
               ],
             ),
             SizedBox(height: 12),
+            Row(
+              children: [
+                Text(
+                  'Thursday 22 Oct 2026, 18:00 - ends at 20:30',
+                  style: TextStyle(
+                    color: cinemaFontWhite,
+                    fontSize: 14,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 40),
             Text(
-              'Cobb steals information from his targets by entering their dreams. He is wanted for his alleged role in his wife\'s murder and his only chance at redemption is to perform a nearly impossible task.',
+              'Please note that Discounts/ Membership Benefits will be applied once you have selected your tickets',
               textAlign: TextAlign.left,
               style: TextStyle(
                 color: cinemaFontWhite,
-                fontSize: 16,
+                fontSize: 14,
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 24),
+            Text(
+              'Please note that Discounts/ Membership Benefits will be applied once you have selected your tickets',
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                color: cinemaFontWhite,
+                fontSize: 14,
+              ),
+            ),
+            const SizedBox(height: 24),
+            Text(
+              'Tickets',
+              style: const TextStyle(
+                color: cinemaFontWhite,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 10),
+            
             Container(
               width: 100,
               height: 34,
@@ -84,7 +114,7 @@ class _MovieListingState extends State<MovieListing> {
                     }
                   },
                   items: [
-                    for (var quantity = 1; quantity <= 5; quantity++)
+                    for (var quantity = 0; quantity <= 5; quantity++)
                       DropdownMenuItem(
                         value: quantity,
                         child: Text('$quantity'),
