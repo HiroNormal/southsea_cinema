@@ -41,32 +41,24 @@ class _MovieListingState extends State<MovieListing> {
                 fontSize: 24
               ),
             ),
-            SizedBox(height: 12),
-            Row(
-              children: [
-                Text(
-                  'Southsea Cinema Room',
-                  style: TextStyle(
-                    color: cinemaFontWhite,
-                    fontSize: 14,
-                  ),
-                ),
-              ],
+            const SizedBox(height: 12),
+            const Text(
+              'Southsea Cinema Room',
+              style: TextStyle(
+                color: cinemaFontWhite,
+                fontSize: 14,
+              ),
             ),
-            SizedBox(height: 12),
-            Row(
-              children: [
-                Text(
-                  'Thursday 22 Oct 2026, 18:00 - ends at 20:30',
-                  style: TextStyle(
-                    color: cinemaFontWhite,
-                    fontSize: 14,
-                  ),
-                ),
-              ],
+            const SizedBox(height: 12),
+            const Text(
+              'Thursday 22 Oct 2026, 18:00 - ends at 20:30',
+              style: TextStyle(
+                color: cinemaFontWhite,
+                fontSize: 14,
+              ),
             ),
-            SizedBox(height: 40),
-            Text(
+            const SizedBox(height: 40),
+            const Text(
               'Please note that Discounts / Membership Benefits will be applied once you have selected your tickets',
               textAlign: TextAlign.left,
               style: TextStyle(
@@ -136,29 +128,24 @@ class _MovieListingState extends State<MovieListing> {
               ],
             ),
             const SizedBox(height: 16),
-            Row(
-              children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: cinemaBrand,
-                    foregroundColor: cinemaFontWhite,
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.zero,
-                    ),
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      final ticketLabel =
-                          _ticketQuantity == 1 ? 'ticket' : 'tickets';
-                      _orderFeedback =
-                          '$_ticketQuantity $ticketLabel added to your order.';
-                    });
-                  },
-                  child: const Text('ADD TO ORDER'),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: cinemaBrand,
+                foregroundColor: cinemaFontWhite,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.zero,
                 ),
-              ],
+              ),
+              onPressed: () {
+                setState(() {
+                  final ticketLabel =
+                      _ticketQuantity == 1 ? 'ticket' : 'tickets';
+                  _orderFeedback =
+                      '$_ticketQuantity $ticketLabel added to your order.';
+                });
+              },
+              child: const Text('ADD TO ORDER'),
             ),
-            
             if (_orderFeedback != null) ...[
               const SizedBox(height: 10),
               Text(
