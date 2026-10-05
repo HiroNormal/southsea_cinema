@@ -64,23 +64,34 @@ class _MovieListingState extends State<MovieListing> {
               ),
             ),
             const SizedBox(height: 20),
-            DropdownMenu<int>(
-              label: const Text('Tickets'),
-              initialSelection: _ticketQuantity,
-              onSelected: (int? value) {
-                if (value != null) {
-                  setState(() {
-                    _ticketQuantity = value;
-                  });
-                }
-              },
-              dropdownMenuEntries: [
-                DropdownMenuEntry(value: 1, label: '1 ticket'),
-                DropdownMenuEntry(value: 2, label: '2 tickets'),
-                DropdownMenuEntry(value: 3, label: '3 tickets'),
-                DropdownMenuEntry(value: 4, label: '4 tickets'),
-                DropdownMenuEntry(value: 5, label: '5 tickets'),
-              ],
+            Container(
+              width: 100,
+              height: 34,
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              color: cinemaFontWhite,
+              child: DropdownButtonHideUnderline(
+                child: DropdownButton<int>(
+                  value: _ticketQuantity,
+                  isExpanded: true,
+                  style: const TextStyle(color: Colors.black, fontSize: 16),
+                  dropdownColor: cinemaFontWhite,
+                  iconEnabledColor: Colors.black,
+                  onChanged: (int? value) {
+                    if (value != null) {
+                      setState(() {
+                        _ticketQuantity = value;
+                      });
+                    }
+                  },
+                  items: [
+                    for (var quantity = 1; quantity <= 5; quantity++)
+                      DropdownMenuItem(
+                        value: quantity,
+                        child: Text('$quantity'),
+                      ),
+                  ],
+                ),
+              ),
             ),
             const SizedBox(height: 16),
             ElevatedButton(
@@ -99,10 +110,10 @@ class _MovieListingState extends State<MovieListing> {
                       '$_ticketQuantity $ticketLabel added to your order.';
                 });
               },
-              child: const Text('Add to order'),
+              child: const Text('ADD TO ORDER'),
             ),
             if (_orderFeedback != null) ...[
-              const SizedBox(height: 12),
+              const SizedBox(height: 10),
               Text(
                 _orderFeedback!,
                 style: const TextStyle(
