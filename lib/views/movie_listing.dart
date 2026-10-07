@@ -108,7 +108,7 @@ class _MovieListingState extends State<MovieListing> {
                         }
                       },
                       items: [
-                        for (var quantity = 0; quantity <= 5; quantity++)
+                        for (int quantity = 0; quantity <= 5; quantity++)
                           DropdownMenuItem(
                             value: quantity,
                             child: Text('$quantity'),
@@ -138,16 +138,18 @@ class _MovieListingState extends State<MovieListing> {
               ),
               onPressed: () {
                 setState(() {
-                  final ticketLabel =
-                      _ticketQuantity == 1 ? 'ticket' : 'tickets';
-                  _orderFeedback =
-                      '$_ticketQuantity $ticketLabel added to your order.';
+                  if (_ticketQuantity == 1) {
+                    _orderFeedback =
+                        '$_ticketQuantity ticket added to your order.';
+                  } else {
+                    _orderFeedback =
+                        '$_ticketQuantity tickets added to your order.';
+                  }
                 });
               },
               child: const Text('ADD TO ORDER'),
             ),
-            if (_orderFeedback != null) ...[
-              const SizedBox(height: 10),
+            if (_orderFeedback != null)
               Text(
                 _orderFeedback!,
                 style: const TextStyle(
@@ -155,7 +157,6 @@ class _MovieListingState extends State<MovieListing> {
                   fontSize: 15,
                 ),
               ),
-            ],
           ],
         ),
       ),
