@@ -5,6 +5,7 @@ class Movies {
   final String year;
   final String date;
   final String runtime;
+  final String imagePath;
 
   const Movies({
     required this.id,
@@ -13,6 +14,6 @@ class Movies {
     required this.year,
     required this.date,
     required this.runtime,
+    required this.imagePath,
   });
-
 }
