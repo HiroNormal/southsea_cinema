@@ -4,13 +4,15 @@ class MoviesRepository {
   List<Movies> getMovies() {
     return const [
       Movies(
-          id: 'inception',
-          name: 'Inception',
-          age: '12A',
-          year: '2010',
-          runtime: '142',
-          date: 'Thursday 22 Oct 2026',
-          imagePath: 'assets/images/inception.png'),
+        id: 'inception',
+        name: 'Inception',
+        age: '12A',
+        year: '2010',
+        runtime: '142',
+        date: 'Thursday 22 Oct 2026',
+        imagePath: 'assets/images/inception.png',
+        description: 'dreams',
+      ),
       Movies(
         id: 'the-thing',
         name: 'The Thing',
@@ -19,6 +21,7 @@ class MoviesRepository {
         runtime: '109',
         date: 'Thursday 29 Oct 2026',
         imagePath: 'assets/images/Thing.jpg',
+        description: 'alien'
       )
     ];
   }

@@ -3,6 +3,7 @@ import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/models/movies.dart';
 import 'package:southsea_cinema/repositories/movies_repository.dart';
 import 'package:southsea_cinema/widgets/movie_card.dart';
+import 'package:southsea_cinema/widgets/nav_drawer.dart';
 
 class MenuScreen extends StatelessWidget {
 	const MenuScreen({super.key});
@@ -13,9 +14,12 @@ class MenuScreen extends StatelessWidget {
 		final List<Movies> movies = repository.getMovies();
 
 		return Scaffold(
+			drawer: const NavDrawer(),
 			appBar: AppBar(
 				title: const Text(appTitle, style: cinemaHeaderStyle),
 				backgroundColor: cinemaSurface,
+				iconTheme: const IconThemeData(color: cinemaFontWhite),
+				elevation: 0,
 			),
 			body: ListView.builder(
 				itemCount: movies.length,
