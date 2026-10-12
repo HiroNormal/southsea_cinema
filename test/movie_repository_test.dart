@@ -4,9 +4,9 @@ import 'package:southsea_cinema/repositories/movies_repository.dart';
 
 void main() {
   group('MoviesRepository unit tests', () {
-    test('getMovies returns two movies', () {
-      final repository = MoviesRepository();
-      final movies = repository.getMovies();
+    test('getMovies returns a list with two items', () {
+      final MoviesRepository repository = MoviesRepository();
+      final List<Movies> movies = repository.getMovies();
 
       expect(movies.length, 2);
     });
