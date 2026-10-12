@@ -1,0 +1,35 @@
+import 'package:flutter_test/flutter_test.dart';
+import 'package:southsea_cinema/models/movies.dart';
+import 'package:southsea_cinema/repositories/movies_repository.dart';
+
+void main() {
+  group('MoviesRepository unit tests', () {
+    test('getMovies returns two movies', () {
+      final repository = MoviesRepository();
+      final movies = repository.getMovies();
+
+      expect(movies.length, 2);
+    });
+
+    test('getMovies contains Inception and The Thing', () {
+      final repository = MoviesRepository();
+      final movies = repository.getMovies();
+
+      final inception = movies[0];
+      expect(inception.id, 'inception');
+      expect(inception.name, 'Inception');
+      expect(inception.age, '12A');
+      expect(inception.year, '2010');
+      expect(inception.price, 6.00);
+      expect(inception.imagePath, isNotEmpty);
+
+      final theThing = movies[1];
+      expect(theThing.id, 'the-thing');
+      expect(theThing.name, 'The Thing');
+      expect(theThing.age, '15');
+      expect(theThing.year, '1982');
+      expect(theThing.price, 6.00);
+      expect(theThing.imagePath, isNotEmpty);
+    });
+  });
+}
