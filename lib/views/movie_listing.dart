@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
+import 'package:southsea_cinema/repositories/movies_repository.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
 
 class MovieListing extends StatefulWidget {
@@ -15,6 +16,8 @@ class _MovieListingState extends State<MovieListing> {
 
   @override
   Widget build(BuildContext context) {
+    final movie = MoviesRepository().getMovieById('inception')!;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(appTitle, style: cinemaHeaderStyle),
@@ -120,8 +123,8 @@ class _MovieListingState extends State<MovieListing> {
                   ),
                 ),
                 const SizedBox(width: 16),
-                const Text(
-                  'Adult (£7.50)',
+                Text(
+                  'Adult (${movie.formattedPrice})',
                   style: TextStyle(
                     color: cinemaFontWhite,
                     fontSize: 15,
