@@ -25,21 +25,23 @@ class _MovieListingState extends State<MovieListing> {
       drawer: const NavDrawer(),
       body: Container(
         padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: cinemaSurface,
-          border: Border.all(
-            color: cinemaFontWhite,
-          ),
-        ),
+        color: cinemaSurface,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               'INCEPTION (2010) (12A)',
-              style: TextStyle(
-                color: cinemaFontWhite,
+              style: const TextStyle(
+                color: cinemaBrand,
                 fontSize: 24
               ),
+            ),
+            const SizedBox(height: 12),
+            Image.asset(
+              'assets/images/inception.png',
+              width: 140,
+              height: 200,
+              fit: BoxFit.cover,
             ),
             const SizedBox(height: 12),
             const Text(
