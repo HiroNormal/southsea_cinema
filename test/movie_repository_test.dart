@@ -31,5 +31,21 @@ void main() {
       expect(theThing.price, 6.00);
       expect(theThing.imagePath, isNotEmpty);
     });
+
+    test('getMovieById returns matching movie when id exists', () {
+      final MoviesRepository repository = MoviesRepository();
+      final Movies? movie = repository.getMovieById('inception');
+
+      expect(movie, isNotNull);
+      expect(movie?.name, 'Inception');
+      expect(movie?.price, 6.00);
+    });
+
+    test('getMovieById returns null when id does not exist', () {
+      final MoviesRepository repository = MoviesRepository();
+      final Movies? movie = repository.getMovieById('non-existent');
+
+      expect(movie, isNull);
+    });
   });
 }
