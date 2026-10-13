@@ -33,7 +33,7 @@ class _MovieListingState extends State<MovieListing> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'INCEPTION (2010) (12A)',
+              '${movie.name.toUpperCase()} (${movie.year}) (${movie.age})',
               style: const TextStyle(
                 color: cinemaBrand,
                 fontSize: 24
@@ -41,7 +41,7 @@ class _MovieListingState extends State<MovieListing> {
             ),
             const SizedBox(height: 12),
             Image.asset(
-              'assets/images/inception.png',
+              movie.imagePath,
               width: 140,
               height: 200,
               fit: BoxFit.cover,
@@ -55,8 +55,8 @@ class _MovieListingState extends State<MovieListing> {
               ),
             ),
             const SizedBox(height: 12),
-            const Text(
-              'Thursday 22 Oct 2026, 18:00 - ends at 20:30',
+            Text(
+              '${movie.date}, ${movie.runtime}',
               style: TextStyle(
                 color: cinemaFontWhite,
                 fontSize: 14,
