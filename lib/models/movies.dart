@@ -23,7 +23,7 @@ class Movies {
 
   String get formattedPrice => '£${price.toStringAsFixed(2)}';
 
-  bool get isChildFriendly => age == 'U' || age == 'PG';
+  bool get isChildFriendly => age == 'U' || age == 'PG' ;
 
   bool get isAdultOnly => age == '18';
 }
