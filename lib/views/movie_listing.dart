@@ -34,10 +34,7 @@ class _MovieListingState extends State<MovieListing> {
           children: [
             Text(
               '${movie.name.toUpperCase()} (${movie.year}) (${movie.age})',
-              style: const TextStyle(
-                color: cinemaBrand,
-                fontSize: 24
-              ),
+              style: const TextStyle(color: cinemaBrand, fontSize: 24),
             ),
             const SizedBox(height: 12),
             Image.asset(
@@ -90,7 +87,6 @@ class _MovieListingState extends State<MovieListing> {
               ),
             ),
             const SizedBox(height: 10),
-            
             Row(
               children: [
                 Container(

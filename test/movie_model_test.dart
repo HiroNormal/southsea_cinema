@@ -111,7 +111,5 @@ void main() {
       expect(adultMovie.isAdultOnly, isTrue);
       expect(fifteenMovie.isAdultOnly, isFalse);
     });
-    
-
-    });
-  }
+  });
+}
