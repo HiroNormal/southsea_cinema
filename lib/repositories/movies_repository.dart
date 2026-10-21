@@ -10,7 +10,7 @@ class MoviesRepository {
           year: '2010',
           runtime: '15:00',
           date: 'Thursday 22 Oct 2026',
-          imagePath: 'assets/images/inception.png',
+          imagePath: 'assets/images/Inception.png',
           description:
               "Cobb steals information from his targets by entering their dreams. He is wanted for his alleged role in his wife's murder and his only chance at redemption is to perform a nearly impossible task.",
           price: 6.00),
