@@ -13,4 +13,3 @@ void main() {
     expect(find.textContaining('THE THING (1982)'), findsOneWidget);
   });
 }
-

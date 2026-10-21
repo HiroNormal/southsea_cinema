@@ -25,7 +25,6 @@ void main() {
       expect(movie.imagePath, 'assets/images/inception.png');
       expect(movie.description, 'A dream movie.');
       expect(movie.price, 6.0);
-      expect(movie.formattedPrice, '£6.00');
     });
 
     test('formattedPrice returns two decimal places with a pound sign', () {
