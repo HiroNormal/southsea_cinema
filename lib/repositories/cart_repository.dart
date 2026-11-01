@@ -1,6 +1,7 @@
 import 'package:southsea_cinema/models/cart_item.dart';
 
 class CartRepository {
+  CartRepository._internal();
   static final CartRepository instance = CartRepository._internal();
 
   final List<CartItem> _items = [];
@@ -39,7 +40,7 @@ class CartRepository {
     return sum;
   }
 
-  double getDeliveryFee() {
+  double getBookingFee() {
     if (_items.isEmpty) {
       return 0.0;
     }
@@ -47,7 +48,7 @@ class CartRepository {
   }
 
   double getTotalDue() {
-    return getSubtotal() + getDeliveryFee();
+    return getSubtotal() + getBookingFee();
   }
 
   void clear() {
