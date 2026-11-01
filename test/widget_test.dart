@@ -21,5 +21,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Movie Listing'), findsOneWidget);
+    expect(find.text('My Basket'), findsOneWidget);
+    expect(find.text('My Settings'), findsOneWidget);
   });
 }
