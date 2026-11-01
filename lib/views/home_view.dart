@@ -20,9 +20,6 @@ class HomeView extends StatelessWidget {
           appTitle,
           style: cinemaHeaderStyle,
         ),
-        backgroundColor: cinemaSurface,
-        iconTheme: const IconThemeData(color: cinemaBrand),
-        elevation: 0,
       ),
       body: ListView.builder(
         itemCount: movies.length,
