@@ -20,16 +20,30 @@ class _BasketScreenState extends State<BasketScreen> {
   Widget build(BuildContext context) {
     final CartRepository cart = CartRepository.instance;
     final List<CartItem> items = cart.getItems();
-    
+    final Widget content;
+    if (items.isEmpty) {
+      if (_confirmationMessage.isNotEmpty) {
+        content = Column(
+          children: [
+            const Text('Empty basket placeholder'),
+            Text(_confirmationMessage),
+          ],
+        );
+      } else {
+        content = const Text('Empty basket placeholder');
+      }
+    } else {
+      content = const Text('Basket list placeholder');
+    }
 
     return Scaffold(
       appBar: AppBar(
         title: const Text(appTitle, style: cinemaHeaderStyle),
         actions: const [BasketButton()],
       ),
-      body: const SingleChildScrollView(
-        padding: EdgeInsets.all(16.0),
-        child: Text('Basket placeholder'),
+       body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16.0),
+        child: content,
       ),
     );
   }
