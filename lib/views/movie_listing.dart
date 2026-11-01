@@ -4,7 +4,9 @@ import 'package:southsea_cinema/repositories/movies_repository.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
 
 class MovieListing extends StatefulWidget {
-  const MovieListing({super.key});
+  final String movieId;
+
+  const MovieListing({super.key, this.movieId = 'inception'});
 
   @override
   State<MovieListing> createState() => _MovieListingState();
@@ -16,7 +18,7 @@ class _MovieListingState extends State<MovieListing> {
 
   @override
   Widget build(BuildContext context) {
-    final movie = MoviesRepository().getMovieById('inception')!;
+    final movie = MoviesRepository().getMovieById(widget.movieId)!;
 
     return Scaffold(
       appBar: AppBar(

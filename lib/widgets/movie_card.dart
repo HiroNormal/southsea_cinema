@@ -102,7 +102,11 @@ class MovieCard extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(context, '/listing');
+                    Navigator.pushNamed(
+                      context,
+                      '/listing',
+                      arguments: movie.id,
+                    );
                   },
                   child: const Text('BOOK NOW'),
                 ),
