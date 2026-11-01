@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/views/home_view.dart';
+import 'package:southsea_cinema/views/basket_view.dart';
 import 'package:southsea_cinema/views/movie_listing.dart';
 
 void main() {
@@ -37,6 +38,7 @@ class SouthseaCinemaApp extends StatelessWidget {
               ModalRoute.of(context)?.settings.arguments as String?;
           return MovieListing(movieId: movieId ?? 'inception');
         },
+        '/basket': (context) => const BasketScreen(),
       },
     );
   }
