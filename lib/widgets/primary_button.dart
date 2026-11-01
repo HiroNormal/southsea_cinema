@@ -15,10 +15,10 @@ class PrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: cinemaBackground,
-        foregroundColor: cinemaBrand ,
+        backgroundColor: cinemaBrand,
+        foregroundColor: cinemaFontWhite,
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.zero,
+          borderRadius: BorderRadius.all(Radius.circular(8)),
         ),
       ),
       onPressed: onPressed,
