@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/models/user_settings.dart';
-import 'package:southsea_cinema/widgets/basket_button.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
 import 'package:southsea_cinema/widgets/primary_button.dart';
 
@@ -59,7 +58,6 @@ class _SettingsViewState extends State<SettingsView> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(appTitle),
-        actions: const [BasketButton()],
       ),
       drawer: const NavDrawer(),
       body: SingleChildScrollView(
