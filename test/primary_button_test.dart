@@ -8,14 +8,14 @@ void main() {
       MaterialApp(
         home: Scaffold(
           body: PrimaryButton(
-            label: 'Order',
+            label: 'BOOK NOW',
             onPressed: () {},
           ),
         ),
       ),
     );
 
-    expect(find.text('Order'), findsOneWidget);
+    expect(find.text('BOOK NOW'), findsOneWidget);
   });
 
   testWidgets('PrimaryButton invokes onPressed when tapped',
@@ -26,7 +26,7 @@ void main() {
       MaterialApp(
         home: Scaffold(
           body: PrimaryButton(
-            label: 'Order',
+            label: 'BOOK NOW',
             onPressed: () {
               wasPressed = true;
             },
@@ -35,7 +35,7 @@ void main() {
       ),
     );
 
-    await tester.tap(find.text('Order'));
+    await tester.tap(find.text('BOOK NOW'));
     await tester.pump();
 
     expect(wasPressed, isTrue);
