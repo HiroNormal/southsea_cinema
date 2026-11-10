@@ -30,10 +30,7 @@ class MovieCard extends StatelessWidget {
                   ),
                   TextSpan(
                     text: '(${movie.age})',
-                    style: const TextStyle(
-                      color: cinemaFontMuted,
-                      fontSize: 16,
-                    ),
+                    style: age,
                   ),
                 ],
               ),

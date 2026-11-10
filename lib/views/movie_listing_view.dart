@@ -87,9 +87,19 @@ class _MovieListingState extends State<MovieListing> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              '${movie.name.toUpperCase()} (${movie.year}) (${movie.age})',
-              style: const TextStyle(color: cinemaBrand, fontSize: 24),
+            Text.rich(
+              TextSpan(
+                children: [
+                  TextSpan(
+                    text: '${movie.name.toUpperCase()} (${movie.year}) ',
+                    style: const TextStyle(color: cinemaBrand, fontSize: 24),
+                  ),
+                  TextSpan(
+                    text: '(${movie.age})',
+                    style: age,
+                  ),
+                ],
+              ),
             ),
             const SizedBox(height: 12),
             Image.asset(

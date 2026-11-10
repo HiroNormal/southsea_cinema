@@ -21,3 +21,8 @@ const TextStyle cinemaBodyStyle = TextStyle(
   color: cinemaFontWhite,
   fontSize: 14,
 );
+
+const TextStyle age = TextStyle(
+  color: cinemaFontMuted,
+  fontSize: 16,
+);
