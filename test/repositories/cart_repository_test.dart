@@ -32,7 +32,8 @@ void main() {
       expect(cart.getTotalDue(), 0.0);
     });
 
-    test('adds one movie and calculates subtotal and booking fee correctly', () {
+    test('adds one movie and calculates subtotal and booking fee correctly',
+        () {
       final CartRepository cart = CartRepository.instance;
       const CartItem item = CartItem(
         movie: testInception,
