@@ -17,7 +17,7 @@ void main() {
         name: 'Alex Smith',
         address: '10 Elm Road, Portsmouth',
         email: 'alex@example.com',
-        receiveNewsletter: false,
+        receiveNewsletter: true,
       );
 
       expect(settings.name, 'Alex Smith');

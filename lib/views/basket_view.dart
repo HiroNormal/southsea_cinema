@@ -3,6 +3,7 @@ import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/models/cart_item.dart';
 import 'package:southsea_cinema/repositories/cart_repository.dart';
 import 'package:southsea_cinema/widgets/basket_button.dart';
+import 'package:southsea_cinema/widgets/nav_drawer.dart';
 import 'package:southsea_cinema/widgets/primary_button.dart';
 
 class BasketView extends StatefulWidget {
@@ -174,6 +175,7 @@ class _BasketViewState extends State<BasketView> {
         title: const Text(appTitle),
         actions: const [BasketButton()],
       ),
+      drawer: const NavDrawer(),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: content,
