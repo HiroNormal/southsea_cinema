@@ -35,8 +35,7 @@ class SouthseaCinemaApp extends StatelessWidget {
       routes: {
         '/home': (context) => const HomeView(),
         '/listing': (context) {
-          final movieId =
-              ModalRoute.of(context)?.settings.arguments as String?;
+          final movieId = ModalRoute.of(context)?.settings.arguments as String?;
           return MovieListing(movieId: movieId ?? 'inception');
         },
         '/basket': (context) => const BasketView(),

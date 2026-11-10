@@ -18,14 +18,14 @@ class MovieListing extends StatefulWidget {
 
 class _MovieListingState extends State<MovieListing> {
   int _ticketQuantity = 0;
-  String? _orderFeedback;
+  String? _bookingFeedback;
 
   void _addToBasket() {
     final movie = MoviesRepository().getMovieById(widget.movieId)!;
 
     if (_ticketQuantity == 0) {
       setState(() {
-        _orderFeedback = 'Please select at least 1 ticket.';
+        _bookingFeedback = 'Please select at least 1 ticket.';
       });
       return;
     }
@@ -36,9 +36,9 @@ class _MovieListingState extends State<MovieListing> {
 
     setState(() {
       if (_ticketQuantity == 1) {
-        _orderFeedback = '1 ticket added to your basket.';
+        _bookingFeedback = '1 ticket added to your basket.';
       } else {
-        _orderFeedback = '$_ticketQuantity tickets added to your basket.';
+        _bookingFeedback = '$_ticketQuantity tickets added to your basket.';
       }
     });
   }
@@ -91,14 +91,14 @@ class _MovieListingState extends State<MovieListing> {
               ),
               const SizedBox(height: 24),
               const Text(
-                'Select Quantites (Up to 5 in total)',
+                'Select Quantities (Up to 5 in total)',
                 textAlign: TextAlign.left,
                 style: cinemaBodyStyle,
               ),
               const SizedBox(height: 24),
-              Text(
+              const Text(
                 'Tickets',
-                style: const TextStyle(
+                style: TextStyle(
                   color: cinemaFontWhite,
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
@@ -140,7 +140,7 @@ class _MovieListingState extends State<MovieListing> {
                   const SizedBox(width: 16),
                   Text(
                     'Adult (${movie.formattedPrice})',
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: cinemaFontWhite,
                       fontSize: 15,
                     ),
@@ -156,9 +156,9 @@ class _MovieListingState extends State<MovieListing> {
                 ),
               ),
               const SizedBox(height: 12),
-              if (_orderFeedback != null)
+              if (_bookingFeedback != null)
                 Text(
-                  _orderFeedback!,
+                  _bookingFeedback!,
                   style: const TextStyle(
                     color: cinemaFontWhite,
                     fontSize: 15,

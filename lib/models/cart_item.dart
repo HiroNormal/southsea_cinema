@@ -9,7 +9,7 @@ class CartItem {
     required this.quantity,
   });
 
-  double get lineTotal{
+  double get lineTotal {
     return movie.price * quantity;
   }
 }
