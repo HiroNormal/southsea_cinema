@@ -5,25 +5,73 @@ import 'package:southsea_cinema/repositories/movies_repository.dart';
 import 'package:southsea_cinema/widgets/movie_card.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
 
   @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  List<Movies> _movies = [];
+  bool _loading = true;
+  String _errorMessage = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _loadMovies();
+  }
+
+  Future<void> _loadMovies() async {
+    try {
+      final MoviesRepository repository = MoviesRepository();
+      final List<Movies> movies = await repository.loadMoviesFromAsset();
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _movies = movies;
+        _loading = false;
+      });
+    } catch (error) {
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _errorMessage = 'Could not load the films: $error';
+        _loading = false;
+      });
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final repository = MoviesRepository();
-    final List<Movies> movies = repository.getMovies();
+    final Widget body;
+    if (_loading) {
+      body = const Center(child: CircularProgressIndicator());
+    } else if (_errorMessage.isNotEmpty) {
+      body = Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Text(_errorMessage, style: cinemaBodyStyle),
+        ),
+      );
+    } else {
+      body = ListView.builder(
+        itemCount: _movies.length,
+        itemBuilder: (BuildContext context, int index) {
+          return MovieCard(movie: _movies[index]);
+        },
+      );
+    }
 
     return Scaffold(
       drawer: const NavDrawer(),
       appBar: AppBar(
         title: const Text(appTitle),
       ),
-      body: ListView.builder(
-        itemCount: movies.length,
-        itemBuilder: (context, index) {
-          return MovieCard(movie: movies[index]);
-        },
-      ),
+      body: body,
     );
   }
 }
