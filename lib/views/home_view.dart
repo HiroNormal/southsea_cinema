@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/models/movies.dart';
 import 'package:southsea_cinema/repositories/movies_repository.dart';
+import 'package:southsea_cinema/widgets/basket_button.dart';
 import 'package:southsea_cinema/widgets/movie_card.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
+import 'package:southsea_cinema/widgets/settings_button.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -17,6 +19,7 @@ class HomeView extends StatelessWidget {
       drawer: const NavDrawer(),
       appBar: AppBar(
         title: const Text(appTitle),
+        actions: const [SettingsButton(), BasketButton()],
       ),
       body: ListView.builder(
         itemCount: movies.length,
