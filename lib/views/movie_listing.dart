@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/models/cart_item.dart';
-import 'package:southsea_cinema/models/movies.dart';
 import 'package:southsea_cinema/repositories/movies_repository.dart';
 import 'package:southsea_cinema/repositories/cart_repository.dart';
 import 'package:southsea_cinema/widgets/basket_button.dart';
@@ -11,7 +10,7 @@ import 'package:southsea_cinema/widgets/primary_button.dart';
 class MovieListing extends StatefulWidget {
   final String movieId;
 
-  const MovieListing({super.key, this.movieId = defaultMovieId});
+  const MovieListing({super.key, this.movieId = 'inception'});
 
   @override
   State<MovieListing> createState() => _MovieListingState();
@@ -20,9 +19,10 @@ class MovieListing extends StatefulWidget {
 class _MovieListingState extends State<MovieListing> {
   int _ticketQuantity = 0;
   String? _orderFeedback;
-  late final Movies movie = MoviesRepository().getMovieById(widget.movieId)!;
 
   void _addToBasket() {
+    final movie = MoviesRepository().getMovieById(widget.movieId)!;
+
     if (_ticketQuantity == 0) {
       setState(() {
         _orderFeedback = 'Please select at least 1 ticket.';
@@ -45,6 +45,8 @@ class _MovieListingState extends State<MovieListing> {
 
   @override
   Widget build(BuildContext context) {
+    final movie = MoviesRepository().getMovieById(widget.movieId)!;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(appTitle, style: cinemaHeaderStyle),
@@ -78,7 +80,7 @@ class _MovieListingState extends State<MovieListing> {
               ),
               const SizedBox(height: 12),
               Text(
-                '${movie.date}, ${movie.showTime}',
+                '${movie.date}, ${movie.runtime}',
                 style: cinemaBodyStyle,
               ),
               const SizedBox(height: 40),
