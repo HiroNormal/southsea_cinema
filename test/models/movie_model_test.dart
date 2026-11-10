@@ -110,5 +110,51 @@ void main() {
       expect(adultMovie.isAdultOnly, isTrue);
       expect(fifteenMovie.isAdultOnly, isFalse);
     });
+
+    test('JSON conversion', () {
+      final Map<String, dynamic> json = <String, dynamic>{
+        'id': 'the-thing',
+        'name': 'The Thing',
+        'age': '15',
+        'year': '1982',
+        'date': 'Thursday 29 Oct 2026',
+        'runtime': '15:00',
+        'imagePath': 'assets/images/Thing.jpg',
+        'description': 'An alien that can copy its victims.',
+        'price': 6.5,
+      };
+
+      final Movies movie = Movies.fromJson(json);
+
+      expect(movie.id, 'the-thing');
+      expect(movie.name, 'The Thing');
+      expect(movie.age, '15');
+      expect(movie.year, '1982');
+      expect(movie.date, 'Thursday 29 Oct 2026');
+      expect(movie.runtime, '15:00');
+      expect(movie.imagePath, 'assets/images/Thing.jpg');
+      expect(movie.description, 'An alien that can copy its victims.');
+      expect(movie.price, 6.5);
+      expect(movie.toJson(), json);
+    });
+
+    test('Json turns whole-number price into a double', () {
+      final Map<String, dynamic> json = <String, dynamic>{
+        'id': 'inception',
+        'name': 'Inception',
+        'age': '12A',
+        'year': '2010',
+        'date': 'Thursday 22 Oct 2026',
+        'runtime': '15:00',
+        'imagePath': 'assets/images/Inception.png',
+        'description': 'A thief enters dreams to steal information.',
+        'price': 6,
+      };
+
+      final Movies movie = Movies.fromJson(json);
+
+      expect(movie.price, isA<double>());
+      expect(movie.price, 6.0);
+    });
   });
 }
