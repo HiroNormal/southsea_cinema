@@ -29,6 +29,31 @@ class _SettingsViewState extends State<SettingsView> {
   }
 
   @override
+  void dispose() {
+    _nameController.dispose();
+    _addressController.dispose();
+    _emailController.dispose();
+    super.dispose();
+  }
+
+  void _saveSettings() {
+    final String name = _nameController.text.trim();
+    final String address = _addressController.text.trim();
+    final String email = _emailController.text.trim();
+
+    final UserSettings settings = UserSettings(
+      name: name,
+      address: address,
+      email: email,
+      receiveNewsletter: _receiveNewsletter,
+    );
+
+    setState(() {
+      _confirmationMessage = 'Settings saved for ${settings.name}';
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     throw UnimplementedError();
   }
