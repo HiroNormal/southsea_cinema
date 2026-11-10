@@ -38,7 +38,7 @@ class SouthseaCinemaApp extends StatelessWidget {
               ModalRoute.of(context)?.settings.arguments as String?;
           return MovieListing(movieId: movieId ?? 'inception');
         },
-        '/basket': (context) => const BasketScreen(),
+        '/basket': (context) => const BasketView(),
       },
     );
   }

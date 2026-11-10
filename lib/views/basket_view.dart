@@ -4,16 +4,16 @@ import 'package:southsea_cinema/models/cart_item.dart';
 import 'package:southsea_cinema/repositories/cart_repository.dart';
 import 'package:southsea_cinema/widgets/basket_button.dart';
 
-class BasketScreen extends StatefulWidget {
-  const BasketScreen({super.key});
+class BasketView extends StatefulWidget {
+  const BasketView({super.key});
 
   @override
-  State<BasketScreen> createState() {
-    return _BasketScreenState();
+  State<BasketView> createState() {
+    return _BasketViewState();
   }
 }
 
-class _BasketScreenState extends State<BasketScreen> {
+class _BasketViewState extends State<BasketView> {
   String _confirmationMessage = '';
 
   Widget _buildEmptyState() {
@@ -24,6 +24,37 @@ class _BasketScreenState extends State<BasketScreen> {
           'Your basket is empty',
           style: TextStyle(fontSize: 16, color: Colors.grey),
         ),
+      ),
+    );
+  }
+
+  Widget _buildLineItem(CartRepository cart, CartItem item, int index) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Row(
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '${item.quantity} x ${item.movie.name}',
+                  style: const TextStyle(fontWeight: FontWeight.w600),
+                ),
+                const SizedBox(height: 4),
+                Text('£${item.lineTotal.toStringAsFixed(2)}'),
+              ],
+            ),
+          ),
+          IconButton(
+            icon: const Icon(Icons.delete_outline, color: Colors.red),
+            onPressed: () {
+              setState(() {
+                cart.removeItem(index);
+              });
+            },
+          ),
+        ],
       ),
     );
   }
