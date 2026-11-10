@@ -119,7 +119,7 @@ void main() {
         'year': '1982',
         'date': 'Thursday 29 Oct 2026',
         'runtime': '15:00',
-        'imagePath': 'assets/images/Thing.jpg',
+        'imagePath': 'assets/images/thing.jpg',
         'description': 'An alien that can copy its victims.',
         'price': 6.5,
       };
@@ -132,7 +132,7 @@ void main() {
       expect(movie.year, '1982');
       expect(movie.date, 'Thursday 29 Oct 2026');
       expect(movie.runtime, '15:00');
-      expect(movie.imagePath, 'assets/images/Thing.jpg');
+      expect(movie.imagePath, 'assets/images/thing.jpg');
       expect(movie.description, 'An alien that can copy its victims.');
       expect(movie.price, 6.5);
       expect(movie.toJson(), json);
@@ -146,7 +146,7 @@ void main() {
         'year': '2010',
         'date': 'Thursday 22 Oct 2026',
         'runtime': '15:00',
-        'imagePath': 'assets/images/Inception.png',
+        'imagePath': 'assets/images/inception.png',
         'description': 'A thief enters dreams to steal information.',
         'price': 6,
       };

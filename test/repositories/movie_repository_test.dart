@@ -62,7 +62,7 @@ void main() {
       expect(movies[0].year, '2010');
       expect(movies[0].date, 'Thursday 22 Oct 2026');
       expect(movies[0].runtime, '15:00');
-      expect(movies[0].imagePath, 'assets/images/Inception.png');
+      expect(movies[0].imagePath, 'assets/images/inception.png');
       expect(movies[0].description, isNotEmpty);
       expect(movies[0].price, 6.00);
 
@@ -72,7 +72,7 @@ void main() {
       expect(movies[1].year, '1982');
       expect(movies[1].date, 'Thursday 29 Oct 2026');
       expect(movies[1].runtime, '15:00');
-      expect(movies[1].imagePath, 'assets/images/Thing.jpg');
+      expect(movies[1].imagePath, 'assets/images/thing.jpg');
       expect(movies[1].description, isNotEmpty);
       expect(movies[1].price, 6.00);
 

@@ -12,7 +12,7 @@ const Movies testInception = Movies(
   date: 'Thursday 22 Oct 2026',
   description: 'A thief enters dreams to steal information.',
   price: 6.0,
-  imagePath: 'assets/images/Inception.png',
+  imagePath: 'assets/images/inception.png',
 );
 
 void main() {

@@ -12,7 +12,7 @@ const Movies testMovie = Movies(
   year: '2010',
   date: 'Thursday 22 Oct 2026',
   runtime: '15:00',
-  imagePath: 'assets/images/Inception.png',
+  imagePath: 'assets/images/inception.png',
   description: 'A thief enters dreams to steal information.',
   price: 6.0,
 );
