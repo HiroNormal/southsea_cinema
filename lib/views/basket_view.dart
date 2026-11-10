@@ -171,7 +171,7 @@ class _BasketViewState extends State<BasketView> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(appTitle, style: cinemaHeaderStyle),
+        title: const Text(appTitle),
         actions: const [BasketButton()],
       ),
       body: SingleChildScrollView(

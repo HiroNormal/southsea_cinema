@@ -16,10 +16,7 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       drawer: const NavDrawer(),
       appBar: AppBar(
-        title: const Text(
-          appTitle,
-          style: cinemaHeaderStyle,
-        ),
+        title: const Text(appTitle),
       ),
       body: ListView.builder(
         itemCount: movies.length,

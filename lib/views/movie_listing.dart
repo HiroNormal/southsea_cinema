@@ -49,7 +49,7 @@ class _MovieListingState extends State<MovieListing> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(appTitle, style: cinemaHeaderStyle),
+        title: const Text(appTitle),
         actions: [
           const BasketButton(),
         ],
