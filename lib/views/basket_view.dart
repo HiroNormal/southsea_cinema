@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
-import 'package:southsea_cinema/models/cart_item.dart';
-import 'package:southsea_cinema/repositories/cart_repository.dart';
+import 'package:southsea_cinema/models/basket_item.dart';
+import 'package:southsea_cinema/repositories/basket_repository.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
 import 'package:southsea_cinema/widgets/primary_button.dart';
 
@@ -29,7 +29,7 @@ class _BasketViewState extends State<BasketView> {
     );
   }
 
-  Widget _buildLineItem(CartRepository cart, CartItem item, int index) {
+  Widget _buildLineItem(BasketRepository basket, BasketItem item, int index) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Row(
@@ -51,7 +51,7 @@ class _BasketViewState extends State<BasketView> {
             icon: const Icon(Icons.delete_outline, color: Colors.red),
             onPressed: () {
               setState(() {
-                cart.removeItem(index);
+                basket.removeItem(index);
               });
             },
           ),
@@ -80,34 +80,34 @@ class _BasketViewState extends State<BasketView> {
     );
   }
 
-  Widget _buildBasketList(CartRepository cart, List<CartItem> items) {
+  Widget _buildBasketList(BasketRepository basket, List<BasketItem> items) {
     final List<Widget> children = [];
 
     children.add(const Text('Your basket', style: cinemaHeaderStyle));
     children.add(const SizedBox(height: 16));
 
     for (int index = 0; index < items.length; index++) {
-      final CartItem item = items[index];
-      children.add(_buildLineItem(cart, item, index));
+      final BasketItem item = items[index];
+      children.add(_buildLineItem(basket, item, index));
     }
 
     children.add(const SizedBox(height: 24));
     children.add(
       _buildTotalRow(
         'Tickets subtotal',
-        '£${cart.getSubtotal().toStringAsFixed(2)}',
+        '£${basket.getSubtotal().toStringAsFixed(2)}',
       ),
     );
     children.add(
       _buildTotalRow(
         'Booking fee',
-        '£${cart.getBookingFee().toStringAsFixed(2)}',
+        '£${basket.getBookingFee().toStringAsFixed(2)}',
       ),
     );
     children.add(
       _buildTotalRow(
         'Total to pay',
-        '£${cart.getTotalDue().toStringAsFixed(2)}',
+        '£${basket.getTotalDue().toStringAsFixed(2)}',
         emphasise: true,
       ),
     );
@@ -120,7 +120,7 @@ class _BasketViewState extends State<BasketView> {
           label: 'Checkout',
           onPressed: () {
             setState(() {
-              cart.clear();
+              basket.clear();
               _confirmationMessage = 'Thanks, your tickets are booked';
             });
           },
@@ -146,8 +146,8 @@ class _BasketViewState extends State<BasketView> {
 
   @override
   Widget build(BuildContext context) {
-    final CartRepository cart = CartRepository.instance;
-    final List<CartItem> items = cart.getItems();
+    final BasketRepository basket = BasketRepository.instance;
+    final List<BasketItem> items = basket.getItems();
     final Widget content;
     if (items.isEmpty) {
       if (_confirmationMessage.isNotEmpty) {
@@ -166,7 +166,7 @@ class _BasketViewState extends State<BasketView> {
         content = _buildEmptyState();
       }
     } else {
-      content = _buildBasketList(cart, items);
+      content = _buildBasketList(basket, items);
     }
 
     return Scaffold(

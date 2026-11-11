@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:southsea_cinema/models/cart_item.dart';
+import 'package:southsea_cinema/models/basket_item.dart';
 import 'package:southsea_cinema/models/movies.dart';
-import 'package:southsea_cinema/repositories/cart_repository.dart';
+import 'package:southsea_cinema/repositories/basket_repository.dart';
 import 'package:southsea_cinema/views/basket_view.dart';
 
 const Movies testMovie = Movies(
@@ -19,7 +19,7 @@ const Movies testMovie = Movies(
 
 void main() {
   setUp(() {
-    CartRepository.instance.clear();
+    BasketRepository.instance.clear();
   });
 
   testWidgets('BasketView displays empty message when basket has no items', (
@@ -34,11 +34,11 @@ void main() {
   testWidgets(
     'BasketView renders items and removes item when delete pressed',
     (WidgetTester tester) async {
-      const CartItem item = CartItem(
+      const BasketItem item = BasketItem(
         movie: testMovie,
         quantity: 2,
       );
-      CartRepository.instance.addItem(item);
+      BasketRepository.instance.addItem(item);
 
       await tester.pumpWidget(const MaterialApp(home: BasketView()));
 
